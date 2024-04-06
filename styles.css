@@ -1,0 +1,17 @@
+body 
+{
+    background-color: yellow;
+}
+  
+h1 
+{
+    color: blue;
+    font-family: courier;
+    font-size: 160%;
+}
+  
+p 
+{
+    color: red;
+    border: 2px solid powderblue;
+}
