@@ -9,7 +9,7 @@ const findMyState = () => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        document.getElementById("map").src = "https://maps.google.com/maps?q=" + latitude + "," + longitude + "&output=embed";
+        document.getElementById("map").src = "https://maps.google.com/maps?center=" + latitude + "," + longitude + "&output=embed";
 
         sendLocation();
     }

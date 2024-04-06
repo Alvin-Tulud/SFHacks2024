@@ -1,32 +1,46 @@
+<!-- we will use this page to display the map and other related data to places -->
+
+
+
+
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles.css">
-<html>
-<body>
-
-<head>
-    <title>Map Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<header>
-    <h1>Question Page</h1>
-</header>
-
-<div>
-    <h1>theres a map here</h1>
-    <p>womp womp</p>
-
-    
-    
-</div>
-
-<div>
-    <button type="button">So Cooked Rn</button>
-    <div>
-        <a href='home_page.html'> Home Page </a>
-    </div>
-</div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta rel="stylesheet" href="style.css" />
+        <title>Map</title>
+    </head>
 
 
-</body>
+    <header>
+        <h1>Map</h1>
+    </header>
+
+
+    <body>
+        <div class="container">
+            <h1 class="status"></h1>
+            <button class="find-state">Find My State</button>
+        </div>
+        <script src="node.js"></script>
+
+
+        <div>
+            <iframe
+                id="map"
+                width="450"
+                height="250"
+                frameborder="0" style="border:0"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place
+                ?key=AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU
+                &center="
+                allowfullscreen>
+            </iframe>
+        </div>
+        <script>src="https://www.google.com/maps/embed/v1/MAP_MODE?key=YOUR_API_KEY&PARAMETERS"</script>
+
+    </body>
 </html>
