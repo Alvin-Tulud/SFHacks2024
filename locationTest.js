@@ -8,6 +8,8 @@ const findMyState = () => {
         console.log(position);
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+
+        sendLocation();
     }
 
     const error = () => {
