@@ -1,31 +1,31 @@
 // locationTest.js
 
-    $(document).ready(function() {
-        const findMyState = () => {
-            const status = $('.status');
+$(document).ready(function() {
+    const findMyState = () => {
+        const status = $('.status');
 
-            const success = (position) => {
-                console.log(position);
-                sendLocation(position.coords.latitude, position.coords.longitude);
-            }
-
-            const error = () => {
-                status.text('Unable to retrieve location');
-            }
-
-            navigator.geolocation.getCurrentPosition(success, error);
+        const success = (position) => {
+            console.log(position);
+            sendLocation(position.coords.latitude, position.coords.longitude);
         }
 
-        function sendLocation(latitude, longitude) {
-            $.ajax({ 
-                url: '/getLocation', 
-                type: 'POST', 
-                data: { 'latitude': latitude, 'longitude': longitude}, 
-                error: function(error) { 
-                    console.log(error); 
-                } 
-            }); 
-        } 
+        const error = () => {
+            status.text('Unable to retrieve location');
+        }
 
-        $('.find-state').click(findMyState);
-    });
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+
+    function sendLocation(latitude, longitude) {
+        $.ajax({ 
+            url: '/', 
+            type: 'POST', 
+            data: { 'latitude': latitude, 'longitude': longitude}, 
+            error: function(error) { 
+                console.log(error); 
+            } 
+        }); 
+    } 
+
+    $('.find-state').click(findMyState);
+});
