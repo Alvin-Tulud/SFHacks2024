@@ -10,6 +10,16 @@ import requests
 import json
 import googlemaps
 
+
+import Flask,render_template, request 
+  
+app = Flask(__name__,template_folder="templates") 
+  
+@app.route("/") 
+  
+@app.route('/getLocation', methods=['POST']) 
+
+
 # Initialize Google Maps client
 api_key = 'AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU'
 gmaps = googlemaps.Client(key=api_key)
