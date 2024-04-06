@@ -10,6 +10,8 @@ import requests
 import json
 import googlemaps
 
+# TODO: JSON contains UTF elements, need to adjust to remove and fix
+
 # Initialize Google Maps client
 api_key = 'AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU'
 gmaps = googlemaps.Client(key=api_key)
@@ -61,8 +63,8 @@ def main():
         restaurant_info = create_restaurant_json(restaurant)
         all_restaurants.append(restaurant_info)
 
-    with open('restaurants.json', 'w') as json_file:
-        json.dump(all_restaurants, json_file, indent=4)
+    with open('restaurants.json', 'w', encoding='utf-8') as json_file:
+        json.dump(all_restaurants, json_file, indent=4, ensure_ascii=False)  # Set ensure_ascii to False
 
 if __name__ == "__main__":
     main()
