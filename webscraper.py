@@ -10,12 +10,13 @@ import requests
 import json
 import googlemaps
 from flask import Flask, request
-  
+from flask_cors import CORS
+
 app = Flask(__name__,template_folder="templates") 
-  
-@app.route("/") 
+CORS(app)
   
 @app.route('/getLocation', methods=['POST'])
+
 def getLocation():
     # Receive latitude and longitude from JavaScript
     data = request.get_json()
