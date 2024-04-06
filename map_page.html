@@ -10,9 +10,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta rel="stylesheet" href="style.css" />
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM&callback=console.debug&libraries=maps,marker&v=beta">
+        </script>
         <style>
-            /* Set the size of the div element that contains the map */
-            #map {
+            #gmp-map {
                 height: 400px;  /* The height is 400 pixels */
                 width: 100%;  /* The width is the full width of the container */
                 background-color: grey; /* A grey background color in case the map doesn't load */
@@ -28,30 +29,15 @@
 
 
     <body>
-        <div id="map"></div>
-
-        <script>
-            function initMap() {
-                // The location of your desired center point
-                const center = { lat: 40.7128, lng: -74.0060 }; // New York City coordinates
-
-                // The map, centered at your desired center point
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 12, // The zoom level, 0 means the whole world
-                    center: center, // Center the map on your desired location
-                });
-
-                // Optional: Add a marker at your desired location
-                const marker = new google.maps.Marker({
-                    position: center,
-                    map: map,
-                    title: "Hello World!", // Tooltip text when you hover over the marker
-                });
-            }
-        </script>
-        <!-- Load the Google Maps JavaScript API -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU&callback=initMap" async defer></script>
-        <!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
+        <gmp-map 
+            center="40.12150192260742,-100.45039367675781" 
+            zoom="4" 
+            map-id="DEMO_MAP_ID">
+            <gmp-advanced-marker 
+                position="40.12150192260742,-100.45039367675781" 
+                title="My location">
+            </gmp-advanced-marker>
+        </gmp-map>
 
 
         <div class="container">
