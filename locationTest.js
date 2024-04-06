@@ -4,10 +4,15 @@ $(document).ready(function() {
     const findMyState = () => {
         const status = $('.status');
 
-        const success = (position) => {
-            console.log(position);
-            sendLocation(position.coords.latitude, position.coords.longitude);
-        }
+    const success = (position) => {
+        console.log(position);
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        document.getElementById("map").src = "https://maps.google.com/maps?center=" + latitude + "," + longitude + "&output=embed";
+
+        sendLocation();
+    }
 
         const error = () => {
             status.text('Unable to retrieve location');
