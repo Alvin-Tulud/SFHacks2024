@@ -60,5 +60,3 @@ async function initMap(latitude, longitude) {
     title: "Your Location",
   });
 }
-
-initMap();

@@ -10,6 +10,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta rel="stylesheet" href="style.css" />
+        <style>
+            /* Set the size of the div element that contains the map */
+            #map {
+                height: 400px;  /* The height is 400 pixels */
+                width: 100%;  /* The width is the full width of the container */
+                background-color: grey; /* A grey background color in case the map doesn't load */
+            }
+        </style>
         <title>Map</title>
     </head>
 
@@ -20,15 +28,36 @@
 
 
     <body>
+        <div id="map"></div>
+
+        <script>
+            function initMap() {
+                // The location of your desired center point
+                const center = { lat: 40.7128, lng: -74.0060 }; // New York City coordinates
+
+                // The map, centered at your desired center point
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 12, // The zoom level, 0 means the whole world
+                    center: center, // Center the map on your desired location
+                });
+
+                // Optional: Add a marker at your desired location
+                const marker = new google.maps.Marker({
+                    position: center,
+                    map: map,
+                    title: "Hello World!", // Tooltip text when you hover over the marker
+                });
+            }
+        </script>
+        <!-- Load the Google Maps JavaScript API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+        <!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
+
+
         <div class="container">
             <h1 class="status"></h1>
             <button class="find-state">Find My State</button>
         </div>
         <script src="locationTest.js"></script>
-
-
-        <div id = "userLocation"></div>
-        <script src="locationTest.js"></script>
-
     </body>
 </html>
