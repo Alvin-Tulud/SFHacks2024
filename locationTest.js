@@ -18,4 +18,15 @@ const findMyState = () => {
 
 }
 
+function sendLocation() {
+    $.ajax({ 
+        url: '/getLocation', 
+        type: 'POST', 
+        data: { 'latitude': latitude, 'longitude': longitude}, 
+        error: function(error) { 
+            console.log(error); 
+        } 
+    }); 
+} 
+
 document.querySelector('.find-state').addEventListener('click', findMyState)
