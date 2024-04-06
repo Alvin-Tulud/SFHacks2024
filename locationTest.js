@@ -1,0 +1,23 @@
+// Used to test getting location from user
+// Will be deleted in future - robert
+
+const findMyState = () => {
+    const status = document.querySelector('.status');
+
+    const success = (position) => {
+        console.log(position);
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        
+    }
+
+    const error = () => {
+        status.textContent = 'Unable to retrieve location';
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+}
+
+document.querySelector('.find-state').addEventListener('click', findMyState)
