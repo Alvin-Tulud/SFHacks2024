@@ -4,13 +4,20 @@
 
 
 <!DOCTYPE html>
+<link rel="stylesheet" href="styles.css">
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta rel="stylesheet" href="style.css" />
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM&callback=initMap"></script>
+        <style>
+            #userLocation {
+              width: 100%;
+              height: 400px;
+              background-color: grey;
+            }
+           </style>
         <title>Map</title>
     </head>
 
@@ -21,13 +28,33 @@
 
 
     <body>
-        <div id = 'userLocation'></div>
-
+        <div id = 'userLocation'>
+            <iframe
+                id="mapContainer"
+                width="100%"
+                height="400"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM
+                    &q=Space+Needle,Seattle+WA">
+            </iframe>
+        </div>
+        <script src="mapView.js"></script>
 
         <div class="container">
             <h1 class="status"></h1>
             <button class="find-state">Find My State</button>
         </div>
-        <script src="locationTest.js"></script>
+        <script src="mapView.js"></script>
+
+        <div>
+            <button type="button">So Cooked Rn</button>
+            <div>
+                <a href='home_page.html'> Home Page </a>
+            </div>
+        </div>
+
     </body>
 </html>

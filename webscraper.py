@@ -17,7 +17,6 @@ app = Flask(__name__,template_folder="templates")
 CORS(app)
 
 @app.route('/getLocation', methods=['POST'])
-@app.route('/getLocation', methods=['GET'])
 
 def getLocation():
     # Receive latitude and longitude from JavaScript
