@@ -3,16 +3,23 @@
 <html>
 <body>
 
+<head>
+    <title>Question Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<header>
+    <h1>Question Page</h1>
+</header>
 
 <div>
-    <h1>"bibideba"</h1>
-    <p>"hello san francisco"</p>
-</div>
-
-<div>
-    <p>"hello san francisco"</p>
-    <a href="https://www.w3schools.com">This is a link</a>
-    <img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
+    <h1>What is the capital of France?</h1>
+    <p>Enter your answer below:</p>
+    <form action="answer_page.html" method="post">
+        <label for="capital">Capital:</label><br>
+        <input type="text" id="capital" name="capital"><br>
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
 <div>
