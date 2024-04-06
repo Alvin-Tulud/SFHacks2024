@@ -6,16 +6,29 @@
             "type": "string"
           },
           "rating": {
-            "type": "number"
+            "type": "number",
+            "format": "float",
+            "sourceType": "Real"
           },
           "about": {
             "type": "string"
           },
           "reviews": {
             "type": "array",
-            "review": "string"
+            "items":{
+              "type":"string"
+            }
           }
-        }
+        },
+        "constraints": [
+          {
+            "type": "identifier",
+            "property": [
+              "name"
+            ]
+          }
+        ]
       }
+
     }
   }
