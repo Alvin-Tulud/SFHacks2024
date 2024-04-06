@@ -1,4 +1,4 @@
-// locationTest.js
+// mapView.js
 
 $(document).ready(function() {
     const findMyState = () => {
@@ -8,9 +8,12 @@ $(document).ready(function() {
         console.log(position);
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-
-        sendLocation(latitude, longitude);
-    }
+        
+        console.log(latitude);
+        console.log(longitude);
+        document.getElementById("mapContainer").setAttribute("src",
+         "https://www.google.com/maps/embed/v1/view?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM&center=" + latitude + "," + longitude);
+        }
 
         const error = () => {
             status.text('Unable to retrieve location');
@@ -19,17 +22,7 @@ $(document).ready(function() {
         navigator.geolocation.getCurrentPosition(success, error);
     }
 
-    function sendLocation(latitude, longitude) {
-        console.log("test");
-        $.ajax({ 
-            url: '/getLocation', 
-            type: 'POST',
-            data: { 'latitude': latitude, 'longitude': longitude}, 
-            error: function(error) { 
-                console.log(error); 
-            } 
-        }); 
-    } 
 
+      
     $('.find-state').click(findMyState);
 });
