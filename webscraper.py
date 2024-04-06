@@ -9,16 +9,24 @@
 import requests
 import json
 import googlemaps
-
-
-import Flask,render_template, request 
+from flask import Flask, request
   
 app = Flask(__name__,template_folder="templates") 
   
 @app.route("/") 
   
-@app.route('/getLocation', methods=['POST']) 
+@app.route('/getLocation', methods=['POST'])
+def getLocation():
+    # Receive latitude and longitude from JavaScript
+    data = request.get_json()
+    ltd = data.get('ltd')
+    lng = data.get('lng')
 
+    if ltd is not None and lng is not None:
+        main(ltd, lng)
+        return "Data received successfully."
+    else:
+        return "Latitude or longitude data is missing."
 
 # Initialize Google Maps client
 api_key = 'AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU'
@@ -61,18 +69,16 @@ def create_restaurant_json(restaurant):
     }
     return restaurant_json
 
-def main():
+def main(ltd, lng):
     # TODO: Receive ltd & lng from Javascript
-    ltd = 37.565094
-    lng = -122.321859
     restaurants = get_restaurants(ltd, lng)
     all_restaurants = []
     for restaurant in restaurants:
         restaurant_info = create_restaurant_json(restaurant)
         all_restaurants.append(restaurant_info)
 
-    with open('restaurants.json', 'w') as json_file:
-        json.dump(all_restaurants, json_file, indent=4)
+    with open('restaurants.json', 'w', encoding='utf-8') as json_file:
+        json.dump(all_restaurants, json_file, indent=4, ensure_ascii=False)  # Set ensure_ascii to False
 
 if __name__ == "__main__":
     main()
