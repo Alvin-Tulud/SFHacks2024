@@ -11,13 +11,13 @@ div
 
 h1 
 {
-    color: blue;
+    color: rgb(0, 0, 0);
     font-family: courier;
     font-size: 160%;
 }
   
 p 
 {
-    color: red;
+    color: rgb(0, 0, 0);
     border: 2px solid powderblue;
 }
