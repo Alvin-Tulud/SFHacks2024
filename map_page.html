@@ -1,8 +1,5 @@
 <!-- we will use this page to display the map and other related data to places -->
 
-
-
-
 <!DOCTYPE html>
 <link rel="stylesheet" href="styles.css">
 <html lang="en">
@@ -28,20 +25,20 @@
 
 
     <body>
-        <div id = 'userLocation'></div>
-        <script id = 'initMap'>
-            function initMap() {
-                var dumbo = {lat: 40.700802, lng:73.987602};
-                var mapOptions = {
-                    center: dumbo,
-                    zoom: 10
-                };
-                var googlemap = new google.maps.Map(document.getElementById("userLocation"), mapOptions);
-            }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM&callback=initMap"
-        async defer></script>
-
+        <div id = 'userLocation'>
+            <iframe
+                id="mapContainer"
+                width="100%"
+                height="400"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM
+                    &q=Coit+Tower,San Francisco+CA">
+            </iframe>
+        </div>
+        <script src="locationTest.js"></script>
 
         <div class="container">
             <h1 class="status"></h1>
