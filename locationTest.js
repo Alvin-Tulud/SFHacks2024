@@ -6,17 +6,17 @@
 
             const success = (position) => {
                 console.log(position);
+                console.log(position.data);
                 document.getElementById("mapContainer").setAttribute("src",
                 "https://www.google.com/maps/embed/v1/view?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM" + 
                 "&center=" + position.coords.latitude + "," + position.coords.longitude +
-                "&zoom=19");
+                "&zoom=16");
                 sendLocation(position.coords.latitude, position.coords.longitude);
             }
 
             const error = () => {
                 status.text('Unable to retrieve location');
             }
-
             navigator.geolocation.getCurrentPosition(success, error);
         }
 
