@@ -22,7 +22,7 @@ $(document).ready(function() {
     function sendLocation(latitude, longitude) {
         $.ajax({ 
             url: '/getLocation', 
-            type: 'POST', 
+            type: 'POST',
             data: { 'latitude': latitude, 'longitude': longitude}, 
             error: function(error) { 
                 console.log(error); 
