@@ -10,15 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta rel="stylesheet" href="style.css" />
-        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM&callback=console.debug&libraries=maps,marker&v=beta">
-        </script>
-        <style>
-            #gmp-map {
-                height: 400px;  /* The height is 400 pixels */
-                width: 100%;  /* The width is the full width of the container */
-                background-color: grey; /* A grey background color in case the map doesn't load */
-            }
-        </style>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM&callback=initMap"></script>
         <title>Map</title>
     </head>
 
@@ -29,15 +21,7 @@
 
 
     <body>
-        <gmp-map 
-            center="40.12150192260742,-100.45039367675781" 
-            zoom="4" 
-            map-id="DEMO_MAP_ID">
-            <gmp-advanced-marker 
-                position="40.12150192260742,-100.45039367675781" 
-                title="My location">
-            </gmp-advanced-marker>
-        </gmp-map>
+        <div id = 'userLocation'></div>
 
 
         <div class="container">
