@@ -9,7 +9,7 @@ $(document).ready(function() {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         
-        initMap(latitude, longitude);
+        // initMap(latitude, longitude);
         sendLocation(latitude, longitude);
     }
 
@@ -21,6 +21,7 @@ $(document).ready(function() {
     }
 
     function sendLocation(latitude, longitude) {
+        console.log("test");
         $.ajax({ 
             url: '/getLocation', 
             type: 'POST',
