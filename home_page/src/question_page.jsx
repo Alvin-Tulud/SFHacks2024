@@ -8,19 +8,19 @@ const Questionnaire = () => {
         id: 1,
         question: 'What is your gender?',
         type: 'radio',
-        options: ['Male', 'Female', 'Other'],
+        options: ['gooner', 'balls'],
     },
     {
         id: 2,
         question: 'What is your gender?',
         type: 'radio',
-        options: ['Male', 'Female', 'Other'],
+        options: ['gooner', 'balls'],
     },
     {
       id: 3,
       question: 'What is your gender?',
       type: 'radio',
-      options: ['Male', 'Female', 'Other'],
+      options: ['gooner', 'balls'],
     },
   ]);
 
@@ -50,13 +50,24 @@ const Questionnaire = () => {
       <form onSubmit={handleSubmit}>
         {questions.map((question) => (
           <div key={question.id}>
-            <label htmlFor={question.id}>{question.question}</label>
+            <h3>{question.question}</h3>
+            <label htmlFor={question.id}>{question.options[0]}</label>
             <input
-              type={question.type}
+              type={'radio'}
               id={question.id}
               name={question.id}
-              value={question.answer}
+              value={question.options[2]}
               onChange={handleInputChange}
+              required
+            />
+            <label htmlFor={question.id}>{question.options[1]}</label>
+            <input
+              type={'radio'}
+              id={question.id}
+              name={question.id}
+              value={question.options[1]}
+              onChange={handleInputChange}
+              required
             />
           </div>
         ))}
