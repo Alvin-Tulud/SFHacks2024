@@ -10,25 +10,25 @@ import requests
 import json
 import googlemaps
 from flask import Flask, request
-from flask_cors import CORS
 
-app = Flask(__name__,template_folder="templates") 
+app = Flask(__name__, template_folder="templates") 
 
-CORS(app)
+@app.route('/', methods=['POST', 'GET', 'PUT'])
 
-@app.route('/getLocation', methods=['POST'])
+def index():
+    if request.method == 'POST':
+        data = request.get_json()
+        ltd = data.get('latitude')
+        lng = data.get('longitude')
 
-def getLocation():
-    # Receive latitude and longitude from JavaScript
-    data = request.get_json()
-    ltd = data.get('ltd')
-    lng = data.get('lng')
-
-    if ltd is not None and lng is not None:
-        main(ltd, lng)
-        return "Data received successfully."
+        if ltd is not None and lng is not None:
+            func(ltd, lng)
+            return "Data received successfully."
+        else:
+            return "Latitude or longitude data is missing."
     else:
-        return "Latitude or longitude data is missing."
+        return "Only POST method is allowed for this endpoint."
+
 
 # Initialize Google Maps client
 api_key = 'AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU'
@@ -71,7 +71,7 @@ def create_restaurant_json(restaurant):
     }
     return restaurant_json
 
-def main(ltd, lng):
+def func(ltd, lng):
     # TODO: Receive ltd & lng from Javascript
     restaurants = get_restaurants(ltd, lng)
     all_restaurants = []
@@ -83,4 +83,4 @@ def main(ltd, lng):
         json.dump(all_restaurants, json_file, indent=4, ensure_ascii=False)  # Set ensure_ascii to False
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
