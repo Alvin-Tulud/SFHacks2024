@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Vite + React</title>
   </head>
   <body>
-    <div id="root">
+    <div id="root" style="border: 0; width: 100vw; height: 100vh">
       <h1>Map Page</h1>
 
       <button onclick="on()">mbti</button>
+      <button onclick="findState()">Find My State</button>
 
 
       <script>
@@ -21,8 +23,29 @@
       function off() {
         document.getElementById("overlay").style.display = "none";
       }
+
+      function findState() {
+
+      }
       </script>
 
+
+      <div id="map2">
+
+        <iframe
+        id="mapContainer"
+        width="100"
+        height="400"
+        style="border: 0; width: 100vw; height: 100vh"
+        
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM
+            &q=Coit+Tower,San Francisco+CA">
+        </iframe>
+
+      </div>
 
       <div id="map"></div>
     </div>
