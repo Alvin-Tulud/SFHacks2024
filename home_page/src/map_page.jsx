@@ -1,6 +1,7 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {APIProvider, Map} from '@vis.gl/react-google-maps';
+import './index.css';
 
 const App = () => (
   <APIProvider apiKey='AIzaSyB6lBBQu2yrWdLZ4qOgWtIx7iCMtRcAeeM'>
@@ -14,7 +15,7 @@ const App = () => (
   </APIProvider>
 );
 
-const root = createRoot(document.querySelector('#app'));
+const root = createRoot(document.getElementById('map'));
 root.render(
   <React.StrictMode>
     <App />
