@@ -5,11 +5,25 @@
 #       Compile JSONs to one JSON and send to DB
 
 # GOOGLE API KEY : AIzaSyANkTF_7wo_8s38cNPil-miLez52QerTzU
+# NEURELO API KEY: neurelo_9wKFBp874Z5xFw6ZCfvhXTK3IpGNNLJcS5Wa93Cseg7kl3VWol938P9HcMSbuV3Lwj7XLelwr+Yong/o/p7a0/J9FCs3Yh7HlcXrZnkAzfXzrWEjXYHwYfbue4vWDqIRf3CyEKENyIWyY5Gqi+hzNMXkSXfjmNLzFo+Wzfs38x8C5ktZu+WB04pT+fyBmq6r_1z3p19zrMKYE8nH5C9Ch6P4GWyr0rCcRLMdoooLuIS0=
 
+from neurelo.configuration import Configuration
+from neurelo.api_client import ApiClient
 import requests
 import json
 import googlemaps
 from flask import Flask, request
+
+# Initialize Neurelo API (also uses REST)
+NEURELO_API_HOST = 'https://us-west-2.aws.neurelo.com/rest/restaurants'
+NEURELO_API_KEY = 'neurelo_9wKFBp874Z5xFw6ZCfvhXTK3IpGNNLJcS5Wa93Cseg7kl3VWol938P9HcMSbuV3Lwj7XLelwr+Yong/o/p7a0/J9FCs3Yh7HlcXrZnkAzfXzrWEjXYHwYfbue4vWDqIRf3CyEKENyIWyY5Gqi+hzNMXkSXfjmNLzFo+Wzfs38x8C5ktZu+WB04pT+fyBmq6r_1z3p19zrMKYE8nH5C9Ch6P4GWyr0rCcRLMdoooLuIS0='
+
+configuration = Configuration(
+	host = NEURELO_API_HOST,
+	api_key={'ApiKey': NEURELO_API_KEY}
+)
+
+neurelo_api_client = ApiClient(configuration=configuration)
 
 app = Flask(__name__, template_folder="templates") 
 
@@ -81,6 +95,8 @@ def func(ltd, lng):
 
     with open('restaurants.json', 'w', encoding='utf-8') as json_file:
         json.dump(all_restaurants, json_file, indent=4, ensure_ascii=False)  # Set ensure_ascii to False
+    
+    neurelo_api_client.create_many_restaurants(all_restaurants)
 
 if __name__ == "__main__":
     app.run(debug=True)
