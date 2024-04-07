@@ -9,6 +9,21 @@
   <body>
     <div id="root">
       <h1>Map Page</h1>
+
+      <button onclick="on()">mbti</button>
+
+
+      <script>
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      }
+      </script>
+
+
       <div id="map"></div>
     </div>
     <script type="module" src="/src/map_page.jsx"></script>
