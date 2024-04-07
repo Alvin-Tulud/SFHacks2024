@@ -1,0 +1,34 @@
+{
+    "objects": {
+      "restaurants": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number",
+            "format": "float",
+            "sourceType": "Real"
+          },
+          "about": {
+            "type": "string"
+          },
+          "reviews": {
+            "type": "array",
+            "items":{
+              "type":"string"
+            }
+          }
+        },
+        "constraints": [
+          {
+            "type": "identifier",
+            "property": [
+              "name"
+            ]
+          }
+        ]
+      }
+
+    }
+  }
