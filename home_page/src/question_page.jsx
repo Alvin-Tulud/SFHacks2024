@@ -5,14 +5,16 @@ import './index.css';
 const Questionnaire = () => {
   const [questions, setQuestions] = useState([
     {
-      id: 1,
-      question: 'What is your name?',
-      type: 'text',
+        id: 1,
+        question: 'What is your gender?',
+        type: 'radio',
+        options: ['Male', 'Female', 'Other'],
     },
     {
-      id: 2,
-      question: 'What is your age?',
-      type: 'number',
+        id: 2,
+        question: 'What is your gender?',
+        type: 'radio',
+        options: ['Male', 'Female', 'Other'],
     },
     {
       id: 3,
